@@ -4,7 +4,7 @@ import { useGetPostByIdQuery } from "../store/slices/apiPost";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackScreenProps } from "../navigation/types";
 import {Post}  from '../types/Post';
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 type Props = RootStackScreenProps<'Detail'>;
 
@@ -23,12 +23,19 @@ export const DetailScreen = ({route}: Props) => {
     return null;
   }
   return (
-    <View style={{flex:1, padding: 20}}>
+    <View style={styles.itemContainer}>
       <Text>{post.id}</Text>
       <Text>{post.title}</Text>
       <Text>{post.body}</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  itemContainer: {
+    flex:1, 
+    padding: 20
+  }
+})
 
 export default DetailScreen;

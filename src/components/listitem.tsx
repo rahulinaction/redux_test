@@ -6,11 +6,11 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/types';
 
 //Callback is used for useNavigation
-interface ItemProps {
-  item: Post
+interface ItemProps<T> {
+  item: T
 }
 
-const ListItem = ({item}:ItemProps) =>{
+const ListItem = ({item}:ItemProps<Post>) =>{
   //Adding type for navigation
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const onPressCallback = useCallback(()=>{
